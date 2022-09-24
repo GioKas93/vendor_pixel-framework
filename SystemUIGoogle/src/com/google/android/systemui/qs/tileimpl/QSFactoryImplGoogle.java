@@ -24,6 +24,8 @@ import com.android.systemui.qs.tileimpl.QSFactoryImpl;
 import com.android.systemui.qs.tileimpl.QSTileImpl;
 import com.android.systemui.qs.tiles.AirplaneModeTile;
 import com.android.systemui.qs.tiles.AlarmTile;
+import com.android.systemui.qs.tiles.AmbientDisplayTile;
+import com.android.systemui.qs.tiles.AODTile;
 import com.android.systemui.qs.tiles.BluetoothTile;
 import com.android.systemui.qs.tiles.CaffeineTile;
 import com.android.systemui.qs.tiles.CameraToggleTile;
@@ -35,6 +37,7 @@ import com.android.systemui.qs.tiles.DataSaverTile;
 import com.android.systemui.qs.tiles.DeviceControlsTile;
 import com.android.systemui.qs.tiles.DndTile;
 import com.android.systemui.qs.tiles.FlashlightTile;
+import com.android.systemui.qs.tiles.HeadsUpTile;
 import com.android.systemui.qs.tiles.HotspotTile;
 import com.android.systemui.qs.tiles.InternetTile;
 import com.android.systemui.qs.tiles.LocationTile;
@@ -47,6 +50,7 @@ import com.android.systemui.qs.tiles.QuickAccessWalletTile;
 import com.android.systemui.qs.tiles.ReduceBrightColorsTile;
 import com.android.systemui.qs.tiles.RotationLockTile;
 import com.android.systemui.qs.tiles.ScreenRecordTile;
+import com.android.systemui.qs.tiles.UsbTetherTile;
 import com.android.systemui.qs.tiles.UiModeNightTile;
 import com.android.systemui.qs.tiles.WifiTile;
 import com.android.systemui.qs.tiles.WorkModeTile;
@@ -65,6 +69,10 @@ public class QSFactoryImplGoogle extends QSFactoryImpl {
     private final Provider<BatterySaverTileGoogle> mBatterySaverTileGoogleProvider;
     private final Provider<ReverseChargingTile> mReverseChargingTileProvider;
     private final Provider<CaffeineTile> mCaffeineTileProvider;
+    private final Provider<HeadsUpTile> mHeadsUpTileProvider;
+    private final Provider<UsbTetherTile> mUsbTetherTileProvider;
+    private final Provider<AmbientDisplayTile> mAmbientDisplayTileProvider;
+    private final Provider<AODTile> mAODTileProvider;
 
     @Inject
     public QSFactoryImplGoogle(
@@ -100,7 +108,11 @@ public class QSFactoryImplGoogle extends QSFactoryImpl {
             Provider<OneHandedModeTile> oneHandedModeTileProvider,
             Provider<ColorCorrectionTile> colorCorrectionTileProvider,
             Provider<ReverseChargingTile> reverseChargingTileProvider,
-            Provider<CaffeineTile> caffeineTileProvider) {
+            Provider<AmbientDisplayTile> ambientDisplayTileProvider,
+            Provider<AODTile> aodTileProvider,
+            Provider<CaffeineTile> caffeineTileProvider,
+            Provider<HeadsUpTile> headsUpTileProvider,
+            Provider<UsbTetherTile> usbTetherTileProvider) {
         super(qsHostLazy,
                 customTileBuilderProvider,
                 wifiTileProvider,
@@ -132,10 +144,18 @@ public class QSFactoryImplGoogle extends QSFactoryImpl {
                 qrCodeScannerTileProvider,
                 oneHandedModeTileProvider,
                 colorCorrectionTileProvider,
-                caffeineTileProvider);
+                ambientDisplayTileProvider,
+                aodTileProvider,
+                caffeineTileProvider,
+                headsUpTileProvider,
+                usbTetherTileProvider);
         mReverseChargingTileProvider = reverseChargingTileProvider;
         mBatterySaverTileGoogleProvider = batterySaverTileGoogleProvider;
+        mAmbientDisplayTileProvider = ambientDisplayTileProvider;
+        mAODTileProvider = aodTileProvider;
         mCaffeineTileProvider = caffeineTileProvider;
+        mHeadsUpTileProvider = headsUpTileProvider;
+        mUsbTetherTileProvider = usbTetherTileProvider;
     }
 
     @Override
