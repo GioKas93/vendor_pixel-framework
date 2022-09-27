@@ -111,6 +111,7 @@ import com.android.systemui.statusbar.policy.BatteryController;
 import com.android.systemui.statusbar.policy.ConfigurationController;
 import com.android.systemui.statusbar.policy.DeviceProvisionedController;
 import com.android.systemui.statusbar.policy.ExtensionController;
+import com.android.systemui.statusbar.policy.FlashlightController;
 import com.android.systemui.statusbar.policy.KeyguardStateController;
 import com.android.systemui.statusbar.policy.UserInfoControllerImpl;
 import com.android.systemui.statusbar.policy.UserSwitcherController;
@@ -200,6 +201,7 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
             NavigationBarController navigationBarController,
             AccessibilityFloatingMenuController accessibilityFloatingMenuController,
             Lazy<AssistManager> assistManagerLazy,
+            FlashlightController flashlightController,
             ConfigurationController configurationController,
             NotificationShadeWindowController notificationShadeWindowController,
             DozeParameters dozeParameters,
@@ -266,7 +268,7 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
                 networkController, batteryController, colorExtractor, screenLifecycle,
                 wakefulnessLifecycle, statusBarStateController, bubblesManagerOptional,
                 bubblesOptional, visualStabilityManager, deviceProvisionedController,
-                navigationBarController, accessibilityFloatingMenuController, assistManagerLazy,
+                navigationBarController, accessibilityFloatingMenuController, assistManagerLazy,flashlightController,
                 configurationController, notificationShadeWindowController, dozeParameters,
                 scrimController, lockscreenWallpaperLazy, lockscreenGestureLogger,
                 biometricUnlockControllerLazy, dozeServiceHost, powerManager, screenPinningRequest,
