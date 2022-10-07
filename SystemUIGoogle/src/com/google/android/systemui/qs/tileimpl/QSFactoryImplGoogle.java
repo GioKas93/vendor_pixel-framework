@@ -34,6 +34,7 @@ import com.android.systemui.qs.tiles.CellularTile;
 import com.android.systemui.qs.tiles.ColorCorrectionTile;
 import com.android.systemui.qs.tiles.ColorInversionTile;
 import com.android.systemui.qs.tiles.DataSaverTile;
+import com.android.systemui.qs.tiles.DataSwitchTile;
 import com.android.systemui.qs.tiles.DeviceControlsTile;
 import com.android.systemui.qs.tiles.DndTile;
 import com.android.systemui.qs.tiles.FlashlightTile;
@@ -73,6 +74,7 @@ public class QSFactoryImplGoogle extends QSFactoryImpl {
     private final Provider<UsbTetherTile> mUsbTetherTileProvider;
     private final Provider<AmbientDisplayTile> mAmbientDisplayTileProvider;
     private final Provider<AODTile> mAODTileProvider;
+    private final Provider<DataSwitchTile> mDataSwitchTileProvider;
 
     @Inject
     public QSFactoryImplGoogle(
@@ -112,7 +114,8 @@ public class QSFactoryImplGoogle extends QSFactoryImpl {
             Provider<AODTile> aodTileProvider,
             Provider<CaffeineTile> caffeineTileProvider,
             Provider<HeadsUpTile> headsUpTileProvider,
-            Provider<UsbTetherTile> usbTetherTileProvider) {
+            Provider<UsbTetherTile> usbTetherTileProvider,
+            Provider<DataSwitchTile> dataSwitchTileProvider) {
         super(qsHostLazy,
                 customTileBuilderProvider,
                 wifiTileProvider,
@@ -148,7 +151,8 @@ public class QSFactoryImplGoogle extends QSFactoryImpl {
                 aodTileProvider,
                 caffeineTileProvider,
                 headsUpTileProvider,
-                usbTetherTileProvider);
+                usbTetherTileProvider,
+                dataSwitchTileProvider);
         mReverseChargingTileProvider = reverseChargingTileProvider;
         mBatterySaverTileGoogleProvider = batterySaverTileGoogleProvider;
         mAmbientDisplayTileProvider = ambientDisplayTileProvider;
@@ -156,6 +160,7 @@ public class QSFactoryImplGoogle extends QSFactoryImpl {
         mCaffeineTileProvider = caffeineTileProvider;
         mHeadsUpTileProvider = headsUpTileProvider;
         mUsbTetherTileProvider = usbTetherTileProvider;
+        mDataSwitchTileProvider = dataSwitchTileProvider;
     }
 
     @Override
